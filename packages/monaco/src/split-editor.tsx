@@ -287,7 +287,12 @@ export default function SplitEditor({
 
   return (
     <div className={clsx('flex h-[calc(100%-_90px)] flex-col', className)} ref={wrapper}>
-      <section className="h-full overflow-hidden">
+      <section
+        className="h-full overflow-hidden"
+        onKeyDown={() => {
+          editorRef?.current?.focus();
+        }}
+      >
         <CodeEditor
           className="overflow-hidden"
           height={userEditorState && settings.bindings === 'vim' ? 'calc(100% - 36px)' : '100%'}
